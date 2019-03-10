@@ -7,7 +7,7 @@
         }
 
         public function getProducts(){
-            $this->db->query('SELECT * FROM books ORDER BY id ASC');
+            $this->db->query('SELECT * FROM `products` ORDER BY id ASC');
 
             $results = $this->db->resultSet();
 
