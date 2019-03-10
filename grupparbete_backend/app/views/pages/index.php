@@ -43,7 +43,7 @@
       <img src="./public/img/<?php echo $product->image; ?>" class="card-img-top" alt="...">
       <div class="card-body mb-3">
   <h3 class="card-title"><?php echo $product->name; ?></h3>
-    <p class="card-text"><?php echo $product->author; ?><br><span class="text-danger font-weight-bold"><?php echo $product->price; ?> kr</span></p>
+    <p class="card-text"><?php echo $product->description; ?><br><span class="text-danger font-weight-bold"><?php echo $product->price; ?> kr</span></p>
     <a href="<?php echo URLROOT; ?>/orders/index" class="btn btn-danger btn-block">Add to Cart</a>
 </div>
 
