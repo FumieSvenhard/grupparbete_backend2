@@ -12,6 +12,18 @@
 
     public function __construct(){
       $url = $this->getUrl();
+
+      // Checking if request comes to API
+      if (strtolower($url[0]) == "api") {
+        // Checking avialability of API version
+        $version = '../app/api/'.ucwords($url[1]).'.php';
+        if (file_exists($version)) {
+          // Passing through response from API 
+          require_once($version);
+          return;
+        }
+      }
+      
       // Look in controllers folder for controller
       if(file_exists('../app/controllers/'.ucwords($url[0]).'.php')){
         // If exists, set as controller
