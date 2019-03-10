@@ -18,7 +18,7 @@ class Database {
 	
 	public function __construct() {
 		// Set DSN
-		$dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
+		$dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname . ";charset=utf8";
 		$options = array (
 			PDO::ATTR_PERSISTENT => true,
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION 
@@ -64,11 +64,17 @@ class Database {
 	}
 	
 	// Get result set as array of objects
-	public function resultset(){
+	public function resultset($type = PDO::FETCH_OBJ){
 		$this->execute();
-		return $this->stmt->fetchAll(PDO::FETCH_OBJ);
+		return $this->stmt->fetchAll($type);
 	}
 	
+	// Get result set as array of objects
+	public function array(){
+		$this->execute();
+		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+
 	// Get single record as object
 	public function single(){
 		$this->execute();
