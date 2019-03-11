@@ -1,4 +1,4 @@
-
+  <div><a href="<?php echo URLROOT; ?>/api/v1/">API endpoint</a></div>
 
 </body>
 </html>
